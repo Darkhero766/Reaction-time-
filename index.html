@@ -1,1 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reaction Time </title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css"/>
 
+</head>
+<body>
+    <div class="container">
+
+        <div class="header">
+            <h1>Reaction <span>Time</span></h1>
+            <p>How Fast Are Your Reflexes</p>
+
+        </div>
+        
+        <div id="arena" class="state-idle" onclick="handleClick()">
+
+            <div id="signal"></div>
+            <div id="msg">Click to Start</div>
+            <div id="sub">Wait fo green - Then click Fast</div>
+
+        </div>
+
+        <div class="stats-row hidden" id="stats-row">
+
+
+            <div class="stat-card">
+                <div class="stat-val" id="s-best">-</div>
+
+                <div class="stat-lbl">Best ms</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-val" id="s-avg">-</div>
+                <div class="stat-lbl">Avg ms</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-val" id="s-tries">0</div>
+
+                <div class="stat-lbl">Rounds</div>
+            </div>
+        </div>
+
+        <div class="history-wrap hidden" id="history-wrap">
+
+
+            <div class="history-label">Last Attempts</div>
+
+            <div id="history-bars"></div>
+        </div>
+
+        <button id="reset-btn" class="hidden" onclick="resetgame()">Reset Score</button>
+
+
+    </div>
+
+<scrip src="game.js"></script>
+
+    
+</body>
+</html>
