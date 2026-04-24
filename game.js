@@ -1,12 +1,12 @@
 var state = 'idle';
 var waitTimer = null;
-var startTimer = null;
+var startTime = null;
 var times = [];
 
-var arena = getElementById('arena');
-var signal = getElementById('signal');
-var msg = getElementById('msg') ;
-var sub = getElementById('sub');
+var arena = document.getElementById('arena');
+var signal = document.getElementById('signal');
+var msg = document.getElementById('msg') ;
+var sub = document.getElementById('sub');
 
 
 function setClass(el, cls){
@@ -113,7 +113,7 @@ function updateStats() {
   document.getElementById('s-avg').textContent   = avg;
   document.getElementById('s-tries').textContent = times.length;
                         
-  drawbars();               
+  drawBars();               
 }
 
 function drawBars() {
