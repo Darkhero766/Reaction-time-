@@ -24,7 +24,7 @@ function handleClick () {
 
 }
 
-function beginWait{
+function beginWait() {
     clearTimeout(waitTimer);
   state = 'waiting';
  
@@ -40,7 +40,7 @@ function beginWait{
 
 }
 
-function showGo{
+function showGo() {
     state = 'ready';
  
   setClass(arena, 'state-go');
@@ -53,7 +53,7 @@ function showGo{
 
 }
 
-function tooSoon{
+function tooSoon() {
     clearTimeout(waitTimer);
   state = 'toosoon';
  
@@ -66,7 +66,7 @@ function tooSoon{
 
 }
 
-function recordResult{
+function recordResult(){
     var elapsed = Math.round(performance.now() - startTime);
   state = 'result';
   times.push(elapsed);
