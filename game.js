@@ -113,9 +113,49 @@ function updateStats() {
   document.getElementById('s-avg').textContent   = avg;
   document.getElementById('s-tries').textContent = times.length;
                         
-                        
+  drawbars();               
 }
 
-
+function drawBars() {
+  var container = document.getElementById('history-bars');
+  container.innerHTML = '';
+ 
+  var last  = times.slice(-10);
+  var mx    = Math.max.apply(null, last);
+  var mn    = Math.min.apply(null, last);
+  var range = mx - mn || 1;
+ 
+  last.forEach(function(t, i) {
+    var bar = document.createElement('div');
+    bar.className = 'bar' + (i === last.length - 1 ? ' latest' : '');
+ 
+    
+    var pct = 10 + ((t - mn) / range) * 90;
+    bar.style.height = pct.toFixed(1) + '%';
+ 
+    container.appendChild(bar);
+  });
+}
           
 
+function resetGame() {
+  clearTimeout(waitTimer);
+  times = [];
+  state = 'idle';
+ 
+  setClass(arena, 'state-idle');
+  setClass(signal, '');
+ 
+  msg.textContent = 'Click to start';
+  sub.textContent = 'Wait for green — then click fast';
+  sub.style.display = 'block';
+ 
+  document.getElementById('stats-row').classList.add('hidden');
+  document.getElementById('history-wrap').classList.add('hidden');
+  document.getElementById('reset-btn').classList.add('hidden');
+ 
+  document.getElementById('s-best').textContent  = '—';
+  document.getElementById('s-avg').textContent   = '—';
+  document.getElementById('s-tries').textContent = '0';
+  document.getElementById('history-bars').innerHTML = '';
+}
